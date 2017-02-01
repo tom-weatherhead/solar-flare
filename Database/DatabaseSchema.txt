@@ -1,0 +1,50 @@
+Project Flare : Database Schema
+June 26, 2009
+
+Table: Accounts
+Column: AccountID (10-digit integer, so it fits in signed 32 bits (a .NET "int")) (INT) (Primary key) (Auto increment)
+Column: Enabled (Boolean; 1-character string: "Y" or "N") (CHAR(1))
+Column: Name (100-character string) (Account name) (VARCHAR(100))
+
+Table: Targets
+Column: TargetID (10-digit integer) (INT) (Primary key) (Auto increment)
+Column: AccountID (10-digit integer) (INT) (Foreign key?)
+Column: Enabled (Boolean; 1-character string: "Y" or "N") (CHAR(1))
+Column: Name (100-character string) (VARCHAR(100)) (Target name)
+Column: URL (255-character string) (VARCHAR(255))
+Column: MonitorInterval (10-digit integer) (INT) (in seconds; can accomodate an interval of one day)
+Column: LastMonitoredAt (Date and Time) (DATETIME)
+Column: MonitorType (INT) (enumerated type for (1) http get, (2) http post, (3) ping, etc....)
+Column: LastTargetLogID (INT)
+Column: TargetAddedAt (DATETIME) (date/time the target was added to system to show duration it has been monitored)
+Column: LastFailedAt (DATETIME) (date/time of last failure monitor to show customer uptime for this target; only use failures customer was notified of)
+
+Table: Contacts
+Column: ContactID (10-digit integer) (INT) (Primary key) (Auto increment)
+Column: AccountID (10-digit integer) (INT) (Foreign key?)
+Column: Enabled (Boolean; 1-character string: "Y" or "N") (CHAR(1))
+Column: FirstName (50-character string) (VARCHAR(50))
+Column: LastName (50-character string) (VARCHAR(50))
+Column: EmailAddress (255-character string) (VARCHAR(255))
+
+Table: TargetFormFields
+Column: TargetID (10-digit integer) (INT)
+Column: FieldName (100-character string) (VARCHAR(100))
+Column: FieldValue (255-character string) (VARCHAR(255))
+Column: FieldID (10-digit integer) (INT) (Primary key) (Auto increment) : This column exists because each table seems to require a unique primary key
+
+Table: TargetLog
+Column: LogID (INT) (Primary key) (Auto increment)
+Column: TargetID (INT)
+Column: TimeStamp (DATETIME)
+Column: Status (monitor pass, monitor fail) (CHAR(4) : "PASS" or "FAIL")
+Column: Message (verbose message containing extra info or http return strings) (TEXT; equivalent to an Oracle CLOB)
+Column: ErrorCode (HTTP error code) (INT)
+Column: LocationID (location target was monitored from) (Locations stored in the SystemConfiguration table as "Location1", etc.) (INT)
+Column: ResponseTime (time it took to receive a response for this monitor activity) (seconds or milliseconds?) (INT)
+? Column: ???RelatedLogID (LogID of previous monitor result when we have a cascade failure)
+
++ Table: SystemConfiguration
+Column: ID (INT) (Primary key) (Auto increment)
+Column: Name (VARCHAR(100))
+Column: Value (VARCHAR(255))

@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="FlareAdminWebApp.SiteMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="topContent">
+            <a href="Default.aspx">Flare - Server Monitoring</a>
+        </div>
+    
+        <div id="statusMessage">
+            <asp:Label ID="lblStatusMessage" runat="server"></asp:Label>
+        </div>
+        
+        <div id="mainContent">
+            <asp:ContentPlaceHolder id="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        
+        <div id="leftContent">
+            <p style="text-align: center;">
+                <asp:Label ID="lblDateDisplay" runat="server"></asp:Label>
+            </p>
+            
+            <h3>Navigation</h3>       
+            <ul>
+                <li><a href="Default.aspx">Home Page</a></li>
+                <li><a href="Accounts.aspx">Accounts</a></li>
+                <li><a href="Contacts.aspx">Contacts</a></li>
+                <li><a href="SystemConfiguration.aspx">System Configuration</a></li>
+                <li><a href="TargetLogSearch.aspx">Target Log Search</a></li>
+                <li><a href="Targets.aspx">Targets</a></li>
+            </ul>
+        </div>
+        
+        <div id="footerContent">
+            <img src="Images/PoweredByASPNET.gif" alt="Powered by ASP.NET" />
+        </div>
+    </form>
+</body>
+</html>

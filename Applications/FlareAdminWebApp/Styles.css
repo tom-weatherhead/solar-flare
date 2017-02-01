@@ -1,0 +1,71 @@
+﻿/* FlareAdminWebApp Styles.css - Cascading Style Sheet - August 31, 2009 */
+
+body {
+    font-family: "Times New Roman",Serif;
+    font-size: medium;
+    margin: 0px;
+}
+
+h1, h2 {
+    margin: 0px;
+}
+
+#topContent {
+    text-align: right;
+    background-color: #600; /* Why are there only three hex digits instead of six?  This might be the same as #660000*/
+    color: white;
+    font-size: x-large;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    height: 50px;
+}
+
+#topContent a {
+    text-decoration: none;  /* This prevents the link from being underlined */
+    color: White;
+}
+
+#statusMessage {
+    text-decoration: none;
+    color: red;
+    text-align: left;
+    height: 25px;
+    margin: 2px 1px 1px 1px;    /* 2 pixels on top; 1 pixel on all other sides */
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#leftContent {
+    font-size: 90%;
+    text-align: left;
+    position: absolute;
+    top: 120px;
+    left: 0px;
+    width: 230px;    
+    margin: 1px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#leftContent h3 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    border-top: dotted 1px #660;
+    border-bottom: dotted 1px #660;
+}
+
+#mainContent {
+    text-align: left;
+    margin: 2px 1px 1px 255px;  /* 2 pixels on top; 255 pixels on the left side; 1 pixel on all other sides */
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#footerContent {
+    text-align: center;
+    padding: 5px;
+}
+
+/* **** End of File **** */
